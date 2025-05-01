@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Environment variables
+.env
+
+# Database
+*.sqlite3
+*.db
+
+# Logs and local dev files
+*.log
+*.pid
+*.swp
+*.swo
+
+# Pytest
+.pytest_cache/
+.cache/
+
+# VS Code
+.vscode/
+
+# Alembic
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+
+# MyPy
+.mypy_cache/
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# IDE
+.idea/
