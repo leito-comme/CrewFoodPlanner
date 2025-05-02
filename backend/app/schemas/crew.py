@@ -3,7 +3,8 @@ from pydantic import BaseModel, ConfigDict
 
 class CrewMemberBase(BaseModel):
     name: str
-    role: str
+    height: float
+    weight: float
     allergies: str | None = None
 
 
