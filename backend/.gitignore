@@ -42,3 +42,5 @@ coverage.xml
 
 # IDE
 .idea/
+
+.DS_Store
