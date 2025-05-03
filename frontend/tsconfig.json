@@ -1,4 +1,9 @@
 {
+  "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@types": ["src/types"]
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
