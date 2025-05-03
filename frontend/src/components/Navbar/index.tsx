@@ -9,6 +9,10 @@ const content = [
     link: "/",
   },
   {
+    name: "Crew",
+    link: "/crew",
+  },
+  {
     name: "Shipping details",
     link: "/shipping",
   },
@@ -28,10 +32,10 @@ const content = [
 
 function Navbar() {
   return (
-    <div className="flex w-full bg-white px-6 py-4">
+    <div className="flex w-full bg-white px-6 py-4 justify-around">
       <div className="w-full max-w-6xl">
         <TabGroup>
-          <TabList className="flex gap-6">
+          <TabList className="flex gap-6 justify-center">
             {content.map(({ name, link }) => (
               <Tab as={Fragment} key={name}>
                 {({ selected }) => (
