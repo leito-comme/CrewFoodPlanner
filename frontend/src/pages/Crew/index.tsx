@@ -1,0 +1,46 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import CrewTable from "@components/CrewTable";
+import UploadCrew from "@components/UploadCrew";
+import { CrewMemberData } from "@types";
+
+function Crew() {
+  const [crewData, setCrewData] = useState<CrewMemberData[]>([]);
+  const [isLoading, setIsLoading] = useState<Boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchInitialData = async () => {
+      try {
+        const res = await axios.get("http://127.0.0.1:8000/crew");
+        if (Array.isArray(res.data)) {
+          setCrewData(res.data);
+        }
+      } catch (err) {
+        setError("Downloading failed!");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchInitialData();
+  }, []);
+
+  const handleUploadSuccess = (newData: CrewMemberData[]) => {
+    setCrewData(newData);
+    setError(null);
+  };
+
+  return isLoading ? (
+    <div>Fetching data...</div>
+  ) : error ? (
+    <div className="error">{error}</div>
+  ) : (
+    <div>
+      <UploadCrew onUploadSuccess={handleUploadSuccess} />
+      <CrewTable data={crewData} />
+    </div>
+  );
+}
+
+export default Crew;
