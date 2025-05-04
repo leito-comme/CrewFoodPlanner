@@ -3,6 +3,8 @@ import axios from "axios";
 import CrewTable from "@components/CrewTable";
 import UploadCrew from "@components/UploadCrew";
 import { CrewMemberData } from "@types";
+import { DataTable } from "@/components/CrewTable/data-table";
+import { columns } from "@/components/CrewTable/columns";
 
 function Crew() {
   const [crewData, setCrewData] = useState<CrewMemberData[]>([]);
@@ -36,9 +38,9 @@ function Crew() {
   ) : error ? (
     <div className="error">{error}</div>
   ) : (
-    <div>
+    <div className="p-4">
       <UploadCrew onUploadSuccess={handleUploadSuccess} />
-      <CrewTable data={crewData} />
+      <DataTable columns={columns} data={crewData} />
     </div>
   );
 }

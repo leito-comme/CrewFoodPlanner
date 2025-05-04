@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Button } from "../ui/button";
 
 const UploadCrew = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null);
@@ -48,15 +49,15 @@ const UploadCrew = ({ onUploadSuccess }) => {
         onChange={(e) => setFile(e.target.files?.[0] || null)}
         disabled={isUploading}
       />
-      <button
-        onClick={handleUpload}
-        disabled={isUploading || !file}
+      <Button
         className={`px-4 py-2 text-white rounded ${
           isUploading || !file ? "bg-blue-300" : "bg-blue-500 hover:bg-blue-600"
         }`}
+        onClick={handleUpload}
+        disabled={isUploading || !file}
       >
         {isUploading ? "Загрузка..." : "Загрузить"}
-      </button>
+      </Button>
       {uploadError && <div className="text-red-500 mt-2">{uploadError}</div>}
     </div>
   );
