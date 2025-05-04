@@ -43,8 +43,8 @@ async def upload_file(file: UploadFile = File(...), db: Session = Depends(get_db
         for _, row in df.iterrows():
             member = CrewMember(
                 name=row["name"],
-                height=row["height"],
-                weight=row["weight"],
+                height="{:.1f}".format(row["height"]),
+                weight="{:.1f}".format(row["weight"]),
                 allergies=row.get("allergies"),
             )
             db.add(member)
