@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CrewTable from "@components/CrewTable";
 import UploadCrew from "@components/UploadCrew";
 import { CrewMemberData } from "@types";
 import { DataTable } from "@/components/CrewTable/data-table";
