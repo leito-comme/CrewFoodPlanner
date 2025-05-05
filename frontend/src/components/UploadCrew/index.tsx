@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { CrewMemberData } from "@/types";
@@ -38,14 +38,12 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
       if (Array.isArray(response.data)) {
         onUploadSuccess(response.data);
       } else {
-        throw new Error("Некорректный формат ответа");
+        throw new Error("Server response error!");
       }
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        setUploadError(error.message);
-      } else {
-        setUploadError("File uploading error!");
-      }
+    } catch (error: any) {
+      const message =
+        error.response?.data?.detail || error.message || "Unknown error";
+      setUploadError(message);
     } finally {
       setIsUploading(false);
       setFile(null);
