@@ -34,11 +34,14 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+    <div className="rounded-md border border-gray-200 shadow-sm overflow-hidden">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id} className="bg-blue-300/20">
+            <TableRow
+              key={headerGroup.id}
+              className="bg-blue-300/20 hover:bg-blue-300/20"
+            >
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={header.id}
