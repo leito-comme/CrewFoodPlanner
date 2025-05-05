@@ -1,15 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { CrewMemberData } from "@/types";
 
-const UploadCrew = ({ onUploadSuccess }) => {
-  const [file, setFile] = useState(null);
+interface UploadCrewProps {
+  onUploadSuccess: (newData: CrewMemberData[]) => void;
+}
+
+const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
+  const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadError, setUploadError] = useState(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const handleUpload = async () => {
     if (!file) {
-      setUploadError("Выберите файл для загрузки");
+      setUploadError("Choose file for uploading!");
       return;
     }
 
@@ -35,28 +40,44 @@ const UploadCrew = ({ onUploadSuccess }) => {
       } else {
         throw new Error("Некорректный формат ответа");
       }
-    } catch (error) {
-      setUploadError(error.response?.data?.message || "Ошибка загрузки файла");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setUploadError(error.message);
+      } else {
+        setUploadError("File uploading error!");
+      }
     } finally {
       setIsUploading(false);
+      setFile(null);
     }
   };
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-3 rounded-md flex gap-6 bg-blue-300/20">
       <input
         type="file"
         onChange={(e) => setFile(e.target.files?.[0] || null)}
         disabled={isUploading}
+        id="actual-btn"
+        hidden
       />
+      <label
+        htmlFor="actual-btn"
+        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
+      >
+        Choose File
+      </label>
+      <div className="inline-flex items-center font-medium text-md">
+        {file ? file.name : "No file chosen"}
+      </div>
       <Button
-        className={`px-4 py-2 text-white rounded ${
+        className={`px-4 py-2 text-white rounded-lg ${
           isUploading || !file ? "bg-blue-300" : "bg-blue-500 hover:bg-blue-600"
         }`}
         onClick={handleUpload}
         disabled={isUploading || !file}
       >
-        {isUploading ? "Загрузка..." : "Загрузить"}
+        {isUploading ? "Uploading..." : "Upload"}
       </Button>
       {uploadError && <div className="text-red-500 mt-2">{uploadError}</div>}
     </div>
