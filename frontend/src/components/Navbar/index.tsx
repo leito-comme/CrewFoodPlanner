@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { Button } from "../ui/button";
 import clsx from "clsx";
 
 const content = [
@@ -39,7 +40,7 @@ function Navbar() {
               to={link}
               className={({ isActive }) =>
                 clsx(
-                  "px-6 py-3 text-sm font-medium transition-all rounded-lg focus:outline-none",
+                  "px-3 py-3 text-sm font-medium transition-all rounded-md focus:outline-none",
                   isActive
                     ? "bg-blue-500 text-white"
                     : "text-gray-600 hover:text-blue-500 hover:bg-blue-50"
