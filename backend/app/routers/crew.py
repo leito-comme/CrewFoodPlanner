@@ -55,7 +55,10 @@ async def upload_file(file: UploadFile = File(...), db: Session = Depends(get_db
 
     except Exception as e:
         logger.error(f"Error during file upload: {e}")
-        raise HTTPException(status_code=500, detail="Internal server error")
+        if isinstance(e, HTTPException):
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
+        else:
+            raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @router.get("", response_model=list[CrewMemberRead])
