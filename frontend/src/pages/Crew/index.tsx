@@ -27,7 +27,7 @@ function Crew() {
     fetchInitialData();
   }, []);
 
-  const handleUploadSuccess = (newData: CrewMemberData[]) => {
+  const handleUploadSuccess = (newData: CrewMemberData[]): void => {
     setCrewData(newData);
     setError(null);
   };
@@ -37,7 +37,7 @@ function Crew() {
   ) : error ? (
     <div className="error">{error}</div>
   ) : (
-    <div className="p-4">
+    <div className="p-4 flex flex-col gap-4">
       <UploadCrew onUploadSuccess={handleUploadSuccess} />
       <DataTable columns={columns} data={crewData} />
     </div>
