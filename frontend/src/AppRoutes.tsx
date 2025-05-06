@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Crew from "./pages/Crew";
-import { Suspense } from "react";
+import { Route, Routes } from 'react-router-dom';
+import { Suspense } from 'react';
+import Home from '@/pages/Home';
+import Crew from '@/pages/Crew';
+import Shipping from '@/pages/Shipping';
 
 function AppRoutes() {
   return (
@@ -10,7 +10,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/crew" element={<Crew />} />
-        <Route path="/shipping" element={<About />} />
+        <Route path="/shipping" element={<Shipping />} />
         <Route path="/menu" element={<></>} />
         <Route path="/flow" element={<></>} />
         <Route path="/analytics" element={<></>} />
