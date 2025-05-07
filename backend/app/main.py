@@ -1,11 +1,11 @@
 from fastapi import FastAPI, APIRouter
-from app.routers import crew
+from app.crew.router import router as crew_router
 from fastapi.middleware.cors import CORSMiddleware
 
 router = APIRouter(redirect_slashes=False)
 
-app = FastAPI(router=router)
-app.include_router(crew.router, tags=["crew"])
+app = FastAPI()
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,6 +14,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(crew_router, tags=["crew"])
 
 
 @app.get("/")
