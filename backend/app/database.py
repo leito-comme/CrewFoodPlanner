@@ -8,16 +8,10 @@ from app.config import settings
 
 
 engine = create_async_engine(settings.DATABASE_URL)
-async_session_maker = async_sessionmaker(autocommit=False, autoflush=False, bind=engine)
+async_session_maker = async_sessionmaker(
+    autocommit=False, autoflush=False, bind=engine, expire_on_commit=False
+)
 Base = declarative_base()
-
-int_pk = Annotated[int, mapped_column(primary_key=True)]
-created_at = Annotated[datetime, mapped_column(server_default=func.now())]
-updated_at = Annotated[
-    datetime, mapped_column(server_default=func.now(), onupdate=datetime.now)
-]
-str_uniq = Annotated[str, mapped_column(unique=True, nullable=False)]
-str_null_true = Annotated[str, mapped_column(nullable=True)]
 
 
 async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
