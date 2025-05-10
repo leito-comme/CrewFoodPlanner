@@ -1,5 +1,3 @@
-"use client";
-
 import {
   ColumnDef,
   flexRender,
@@ -16,7 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import clsx from "clsx";
+import { cn } from '@/lib/utils';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -34,18 +32,18 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="rounded-md border border-gray-200 shadow-sm overflow-hidden">
+    <div className="rounded-lg border border-border shadow-sm overflow-hidden ">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
-              className="bg-blue-300/20 hover:bg-blue-300/20"
+              className="bg-primary/30 hover:bg-primary/30"
             >
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={header.id}
-                  className="text-gray-800 font-semibold text-sm px-4 py-3"
+                  className="text-secondary-foreground/70 font-semibold text-sm px-4 py-3"
                 >
                   {header.isPlaceholder
                     ? null
@@ -58,21 +56,21 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody>
+        <TableBody className="bg-card">
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
-                className={clsx(
-                  "even:bg-gray-50 transition-colors hover:bg-blue-100/60",
-                  row.getIsSelected() && "bg-blue-100"
+                className={cn(
+                  "even:bg-muted/50 transition-colors hover:bg-primary/10",
+                  row.getIsSelected() && "bg-primary/30"
                 )}
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={cell.id}
-                    className="text-sm text-gray-700 px-4 py-2"
+                    className="text-sm text-muted-foreground px-4 py-2"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
@@ -83,7 +81,7 @@ export function DataTable<TData, TValue>({
             <TableRow>
               <TableCell
                 colSpan={columns.length}
-                className="h-24 text-center text-gray-500"
+                className="h-24 text-center text-muted-foreground"
               >
                 No results.
               </TableCell>

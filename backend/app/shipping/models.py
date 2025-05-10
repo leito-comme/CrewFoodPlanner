@@ -9,9 +9,10 @@ class ShippingData(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     voyage_number: Mapped[str] = mapped_column(nullable=False)
-    departure_time: Mapped[DateTime] = mapped_column(nullable=False)
-    arrival_time: Mapped[DateTime] = mapped_column(nullable=False)
+    departure_date: Mapped[DateTime] = mapped_column(nullable=False)
+    arrival_date: Mapped[DateTime] = mapped_column(nullable=False)
     season: Mapped[Seasons] = mapped_column(SqlEnum(Seasons), nullable=False)
+    description: Mapped[str] = mapped_column(nullable=True)
     is_current: Mapped[bool] = mapped_column(
         Boolean, nullable=False, server_default="false", index=True
     )

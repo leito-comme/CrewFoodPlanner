@@ -37,7 +37,7 @@ function Crew() {
   ) : error ? (
     <div className="error">{error}</div>
   ) : (
-    <div className="p-4 flex flex-col gap-4">
+    <div className="p-4 m-2 flex flex-col gap-4 outline-1 outline-border rounded-xl bg-background h-[90vh]">
       <UploadCrew onUploadSuccess={handleUploadSuccess} />
       <DataTable columns={columns} data={crewData} />
     </div>

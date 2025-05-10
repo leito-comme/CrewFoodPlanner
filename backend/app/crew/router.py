@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
-from sqlalchemy import select, insert, delete
+from sqlalchemy import select, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.crew.models import CrewMember
 from app.crew.schemas import CrewMemberCreate, CrewMemberUpload, CrewMemberRead
