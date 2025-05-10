@@ -1,0 +1,66 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+}
+
+.checkmark-wrapper {
+  width: 100px;
+  height: 100px;
+}
+
+.checkmark {
+  width: 100%;
+  height: 100%;
+}
+
+.checkmark path {
+  stroke-dasharray: 99.47578430175781;
+  stroke-dashoffset: -99.47578430175781;
+  fill: transparent;
+}
+
+.checkmark.animate path {
+  animation: 1.8s ease forwards draw;
+  opacity: 1;
+}
+
+@keyframes draw {
+  0% {
+    opacity: 1;
+    stroke-dashoffset: -99.47578430175781;
+    fill: transparent;
+    transform: translateY(0);
+  }
+
+  35% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+
+  60% {
+    fill: #ddf2ff;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    fill: #ddf2ff;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
