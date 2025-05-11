@@ -37,7 +37,7 @@ function DatePicker({ pickerName, pickerDescription }: DatePickerProps) {
       name="dateRange"
       render={({ field }) => (
         <FormItem className="flex flex-col">
-          <FormLabel className="text-foreground text-sm">
+          <FormLabel className="text-primary-foreground text-sm pointer-events-none">
             {pickerName}
           </FormLabel>
           <Popover>
@@ -46,7 +46,7 @@ function DatePicker({ pickerName, pickerDescription }: DatePickerProps) {
                 <Button
                   className={clsx(
                     'w-full pl-3 text-left font-medium text-foreground outline-solid outline-1 outline-border bg-card',
-                    !field.value && 'text-muted-foreground'
+                    !field.value && 'text-muted-foreground/50'
                   )}>
                   {field.value.from === undefined ||
                   field.value.to === undefined

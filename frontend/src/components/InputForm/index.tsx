@@ -23,7 +23,7 @@ function InputForm({ placeholder, formName, name }: InputFormProps) {
       name={name}
       render={({ field }) => (
         <FormItem className="flex flex-col w-full">
-          <FormLabel className="text-foreground text-sm">{formName}</FormLabel>
+          <FormLabel className="text-primary-foreground text-sm pointer-events-none">{formName}</FormLabel>
           {name === 'description' ? (
             <Textarea
               className="bg-card"

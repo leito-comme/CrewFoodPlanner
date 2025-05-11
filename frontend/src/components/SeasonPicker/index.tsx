@@ -50,7 +50,7 @@ function SeasonPicker() {
       name="season"
       render={({ field }) => (
         <FormItem className="w-full">
-          <FormLabel>Season</FormLabel>
+          <FormLabel className='text-primary-foreground text-sm pointer-events-none'>Season</FormLabel>
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <FormControl>
@@ -58,7 +58,7 @@ function SeasonPicker() {
                   ref={triggerRef}
                   role="combobox"
                   className={cn(
-                    'w-full justify-between bg-card outline-solid outline-1 outline-border',
+                    'w-full justify-between bg-card outline-solid outline-1 outline-border text-foreground',
                     open ? 'bg-primary/90' : 'bg-card'
                   )}>
                   {field.value
