@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/table';
 
 import { cn } from '@/lib/utils';
-import './ShippingTable.css'
+import './ShippingTable.css';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -33,7 +33,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="rounded-lg bg-card border border-border shadow-sm overflow-y-scroll h-full">
+    <div className="rounded-lg bg-card border border-border shadow-sm overflow-y-auto h-full">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -43,7 +43,7 @@ export function DataTable<TData, TValue>({
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={header.id}
-                  className="sticky top-0 text-foreground font-semibold text-sm px-4 py-3">
+                  className="text-foreground font-semibold text-sm px-4 py-3">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
