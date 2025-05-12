@@ -13,7 +13,9 @@ router = APIRouter(prefix="/shipping", tags=["shipping"])
 async def read_shiping_data(
     db: AsyncSession = Depends(get_async_session),
 ) -> List[ShippingDataRead]:
-    result = await db.execute(select(ShippingData))
+    result = await db.execute(
+        select(ShippingData).order_by(ShippingData.created_at.desc())
+    )
     return result.scalars().all()
 
 
