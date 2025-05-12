@@ -1,5 +1,5 @@
 from typing import AsyncGenerator
-from datetime import datetime
+from datetime import datetime, timezone
 import re
 
 from sqlalchemy import func, DateTime
@@ -25,8 +25,8 @@ class Base(AsyncAttrs, DeclarativeBase):
     def __tablename__(cls) -> str:
         return f"{camel_to_snake(cls.__name__)}"
     
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(timezone.utc))
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(timezone.utc), onupdate=func.now())
 
 
 

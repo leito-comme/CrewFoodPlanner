@@ -14,7 +14,6 @@ class ShippingDataBase(BaseModel):
     description: Optional[str] = Field(
         max_length=200, description="Additional information about the current voyage"
     )
-    is_current: bool = Field(description="This field shows which voyage is current")
 
 
 class ShippingDataCreate(ShippingDataBase):
@@ -23,5 +22,6 @@ class ShippingDataCreate(ShippingDataBase):
 
 class ShippingDataRead(ShippingDataBase):
     id: int
+    is_current: bool
 
     model_config = ConfigDict(from_attributes=True)
