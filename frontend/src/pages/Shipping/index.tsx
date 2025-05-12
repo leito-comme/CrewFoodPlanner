@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FormProvider } from 'react-hook-form';
 import { z } from 'zod';
+import { cn } from '@/lib/utils';
 import DatePicker from '@/components/DatePicker';
 import { Button } from '@/components/ui/button';
 import SeasonPicker from '@/components/SeasonPicker';
@@ -10,329 +12,6 @@ import { DataTable } from '@/components/ShippingTable/data-table';
 import { columns } from '@/components/ShippingTable/columns';
 import { ShippingData } from '@/types';
 import './Shipping.css';
-
-const shippingData: ShippingData[] = [
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V123456',
-    departure_date: '2025-05-01T10:00:00Z',
-    arrival_date: '2025-05-05T18:00:00Z',
-    season: 'Summer',
-    description: 'A voyage from port A to port B',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V234567',
-    departure_date: '2025-05-02T08:00:00Z',
-    arrival_date: '2025-05-06T20:00:00Z',
-    season: 'Autumn',
-    description: 'Transporting cargo across the northern route',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V345678',
-    departure_date: '2025-06-01T14:00:00Z',
-    arrival_date: '2025-06-10T10:00:00Z',
-    season: 'Winter',
-    description: 'A long-distance journey with multiple stops',
-    is_current: true,
-  },
-  {
-    voyage_number: 'V456789',
-    departure_date: '2025-07-10T16:00:00Z',
-    arrival_date: '2025-07-15T22:00:00Z',
-    season: 'Spring',
-    description: 'Seasonal route for perishable goods',
-    is_current: false,
-  },
-  {
-    voyage_number: 'V567890',
-    departure_date: '2025-08-01T12:00:00Z',
-    arrival_date: '2025-08-07T14:00:00Z',
-    season: 'Summer',
-    description: 'Standard cargo transport',
-    is_current: true,
-  },
-];
 
 const FormSchema = z.object({
   number: z
@@ -356,8 +35,28 @@ const FormSchema = z.object({
 });
 
 function Shipping() {
-  const [animationClass, setAnimationClass] = useState('');
   const [showCheckmark, setShowCheckmark] = useState(false);
+  const [shippingData, setShippingData] = useState<ShippingData[]>([]);
+  const [isLoading, setIsLoading] = useState<Boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [flag, setFlag] = useState<Boolean>(false);
+
+  useEffect(() => {
+    const fetchInitialData = async () => {
+      try {
+        const res = await axios.get('http://127.0.0.1:8000/shipping');
+        if (Array.isArray(res.data)) {
+          setShippingData(res.data);
+        }
+      } catch (err) {
+        setError('Downloading failed!');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchInitialData();
+    setFlag(false);
+  }, [flag]);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -369,15 +68,27 @@ function Shipping() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
-    setShowCheckmark(true);
-    setAnimationClass('animate');
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/shipping/add', {
+        voyage_number: data.number,
+        departure_date: new Date(data.dateRange.from)
+          .toISOString()
+          .split('T')[0],
+        arrival_date: new Date(data.dateRange.to).toISOString().split('T')[0],
+        season: data.season,
+        description: data.description,
+      });
 
-    setTimeout(() => {
-      setAnimationClass('');
-      setShowCheckmark(false);
-    }, 1700);
+      setFlag(true);
+      setShowCheckmark(true);
+
+      setTimeout(() => {
+        setShowCheckmark(false);
+      }, 1700);
+    } catch (error) {
+      setError('Failed to submit the form');
+    }
   }
 
   return (
@@ -389,7 +100,7 @@ function Shipping() {
               <svg
                 viewBox="0 0 48 48"
                 xmlns="http://www.w3.org/2000/svg"
-                className={`checkmark ${animationClass}`}>
+                className={cn('checkmark', showCheckmark ? 'animate' : '')}>
                 <path
                   d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z"
                   stroke="#ddf2ff"
