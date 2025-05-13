@@ -72,10 +72,8 @@ function Shipping() {
     try {
       const response = await axios.post('http://127.0.0.1:8000/shipping/add', {
         voyage_number: data.number,
-        departure_date: new Date(data.dateRange.from)
-          .toISOString()
-          .split('T')[0],
-        arrival_date: new Date(data.dateRange.to).toISOString().split('T')[0],
+        departure_date: data.dateRange.from?.toLocaleDateString('sv-SE'),
+        arrival_date: data.dateRange.to?.toLocaleDateString('sv-SE'),
         season: data.season,
         description: data.description,
       });
