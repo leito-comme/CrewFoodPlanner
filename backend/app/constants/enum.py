@@ -6,3 +6,8 @@ class Seasons(str, Enum):
 	SPRING = "spring"
 	SUMMER = "summer"
 	AUTUMN = "autumn"
+
+class Roles(str, Enum):
+	user = "user"
+	manager = "manager"
+	admin = "admin"

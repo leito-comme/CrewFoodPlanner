@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter
+from app.users.router import router as users_router
 from app.crew.router import router as crew_router
 from app.shipping.router import router as shipping_router
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,6 +21,7 @@ app.add_middleware(
 
 router = APIRouter(redirect_slashes=False)
 
+app.include_router(users_router)
 app.include_router(crew_router, tags=["crew"])
 app.include_router(shipping_router, tags=["shipping"])
 
