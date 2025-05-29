@@ -3,7 +3,7 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-} from '@tanstack/react-table';
+} from "@tanstack/react-table";
 
 import {
   Table,
@@ -12,10 +12,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from "@/components/ui/table";
 
-import { cn } from '@/lib/utils';
-import './ShippingTable.css';
+import { cn } from "@/lib/utils";
+import "./ShippingTable.css";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -39,11 +39,13 @@ export function DataTable<TData, TValue>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
-              className="bg-primary/30 hover:bg-primary/30">
+              className="bg-primary/30 hover:bg-primary/30"
+            >
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={header.id}
-                  className="text-foreground font-semibold text-sm px-4 py-3">
+                  className="text-foreground font-semibold text-sm px-4 py-3"
+                >
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -61,14 +63,16 @@ export function DataTable<TData, TValue>({
               <TableRow
                 key={row.id}
                 className={cn(
-                  'even:bg-muted/50 transition-colors hover:bg-primary/10',
-                  row.getIsSelected() && 'bg-primary/30'
+                  "even:bg-muted/50 transition-colors hover:bg-primary/10",
+                  row.getIsSelected() && "bg-primary/30"
                 )}
-                data-state={row.getIsSelected() && 'selected'}>
+                data-state={row.getIsSelected() && "selected"}
+              >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={cell.id}
-                    className="text-secondary-foreground/70 text-sm font-semibold px-4 py-3">
+                    className="text-secondary-foreground/70 text-sm font-semibold px-4 py-3"
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
@@ -78,7 +82,8 @@ export function DataTable<TData, TValue>({
             <TableRow>
               <TableCell
                 colSpan={columns.length}
-                className="h-24 text-center text-muted-foreground">
+                className="h-24 text-center text-muted-foreground"
+              >
                 No results.
               </TableCell>
             </TableRow>
