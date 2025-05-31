@@ -1,41 +1,58 @@
 import { NavLink } from "react-router-dom";
-import { cn } from '@/lib/utils'
-import { Home, Users, Ship, Hop, Workflow, ChartNoAxesCombined } from 'lucide-react';
+import { cn } from "@/lib/utils";
+import {
+  Home,
+  Users,
+  Ship,
+  Hop,
+  Workflow,
+  ChartNoAxesCombined,
+} from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
-const content = [
+const rawContent = [
   {
-    icon: <Home className='ml-auto h-5 w-5'/>,
+    icon: <Home className="ml-auto h-5 w-5" />,
     name: "Home",
     link: "/",
+    roles: ["user", "manager", "admin"],
   },
   {
-    icon: <Users className='ml-auto h-5 w-5'/>,
+    icon: <Users className="ml-auto h-5 w-5" />,
     name: "Crew",
     link: "/crew",
+    roles: ["user", "admin"],
   },
   {
-    icon: <Ship className='ml-auto h-5 w-5'/>,
+    icon: <Ship className="ml-auto h-5 w-5" />,
     name: "Shipping details",
     link: "/shipping",
+    roles: ["user", "admin"],
   },
   {
-    icon: <Hop className='ml-auto h-5 w-5'/>,
+    icon: <Hop className="ml-auto h-5 w-5" />,
     name: "Menu designer",
     link: "/menu",
+    roles: ["manager"],
   },
   {
-    icon: <Workflow className='ml-auto h-5 w-5'/>,
+    icon: <Workflow className="ml-auto h-5 w-5" />,
     name: "Flow controller",
     link: "/flow",
+    roles: ["manager", "admin"],
   },
   {
-    icon: <ChartNoAxesCombined className='ml-auto h-5 w-5'/>,
+    icon: <ChartNoAxesCombined className="ml-auto h-5 w-5" />,
     name: "Analytics",
     link: "/analytics",
+    roles: ["admin"],
   },
 ];
 
-function Navbar() {
+const Navbar = () => {
+  const { role } = useAuth();
+  const content = rawContent.filter((item) => item.roles.includes(role));
+
   return (
     <div className="flex w-full bg-background px-6 py-4 justify-around">
       <div className="w-full max-w-6xl">
@@ -61,6 +78,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

@@ -1,26 +1,28 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_URL = 'http://127.0.0.1:8000/auth/jwt';
+const API_URL = "http://127.0.0.1:8000/auth/jwt";
 
 export const login = async (email: string, password: string) => {
   const data = new URLSearchParams();
-  data.append('username', email);
-  data.append('password', password);
+  data.append("username", email);
+  data.append("password", password);
 
-  return axios.post(`${API_URL}/login`, data, {
-    withCredentials: true,
+  const res = await axios.post(`${API_URL}/login`, data, {
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      "Content-Type": "application/x-www-form-urlencoded",
     },
   });
+
+  const token = res.data.access_token;
+  localStorage.setItem("access_token", token);
 };
 
 export const logout = () => {
-  localStorage.removeItem('access_token');
+  localStorage.removeItem("access_token");
 };
 
 export const getToken = () => {
-  return localStorage.getItem('access_token');
+  return localStorage.getItem("access_token");
 };
 
 export const isAuthenticated = () => {
