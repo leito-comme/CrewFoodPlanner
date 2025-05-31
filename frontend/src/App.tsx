@@ -4,6 +4,9 @@ import { useAuth } from "./context/AuthContext";
 
 function App() {
   const { isAuthenticated } = useAuth();
+
+  console.log("now isAuth:", isAuthenticated);
+
   return (
     <div className="app-container h-screen flex flex-col">
       {isAuthenticated && <Navbar />}
