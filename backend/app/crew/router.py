@@ -4,6 +4,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.crew.models import CrewMember
 from app.crew.schemas import CrewMemberCreate, CrewMemberUpload, CrewMemberRead
 from app.database import get_async_session
+from app.database import User
+from app.users.dependecies import current_user
 import pandas as pd
 from typing import List
 from io import BytesIO
@@ -13,7 +15,7 @@ router = APIRouter(prefix="/crew", tags=["crew"])
 
 @router.get("")
 async def read_crew(
-    db: AsyncSession = Depends(get_async_session),
+    db: AsyncSession = Depends(get_async_session), user: User = Depends(current_user)
 ) -> List[CrewMemberRead]:
     result = await db.execute(select(CrewMember))
     return result.scalars().all()
