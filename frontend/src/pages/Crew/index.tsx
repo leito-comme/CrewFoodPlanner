@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "@/services/axiosInstance";
 import UploadCrew from "@components/UploadCrew";
 import { CrewMemberData } from "@types";
 import { DataTable } from "@/components/CrewTable/data-table";
 import { columns } from "@/components/CrewTable/columns";
 
-function Crew() {
+const Crew = () => {
   const [crewData, setCrewData] = useState<CrewMemberData[]>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -42,6 +42,6 @@ function Crew() {
       <DataTable columns={columns} data={crewData} />
     </div>
   );
-}
+};
 
 export default Crew;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "@/services/axiosInstance";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
 import { z } from "zod";
@@ -34,7 +34,7 @@ const FormSchema = z.object({
     .optional(),
 });
 
-function Shipping() {
+const Shipping = () => {
   const [showCheckmark, setShowCheckmark] = useState(false);
   const [shippingData, setShippingData] = useState<ShippingData[]>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(true);
@@ -48,7 +48,7 @@ function Shipping() {
         if (Array.isArray(res.data)) {
           setShippingData(res.data);
         }
-      } catch (err) {
+      } catch (error) {
         setError("Downloading failed!");
       } finally {
         setIsLoading(false);
@@ -85,7 +85,7 @@ function Shipping() {
         setShowCheckmark(false);
       }, 1700);
     } catch (error) {
-      setError("Failed to submit the form");
+      alert(`Failed to submit the form!\nError: ${error}`);
     }
   }
 
@@ -147,6 +147,6 @@ function Shipping() {
       </div>
     </div>
   );
-}
+};
 
 export default Shipping;
