@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/services/axiosInstance";
 
 const API_URL = "http://127.0.0.1:8000/auth/jwt";
 
@@ -7,11 +7,7 @@ export const login = async (email: string, password: string) => {
   data.append("username", email);
   data.append("password", password);
 
-  const res = await axios.post(`${API_URL}/login`, data, {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
+  const res = await axios.post(`${API_URL}/login`, data);
 
   const token = res.data.access_token;
   localStorage.setItem("access_token", token);
