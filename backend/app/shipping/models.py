@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import DateTime, Enum, Boolean, text
+from sqlalchemy import Enum, Boolean, text
 from datetime import datetime
 
 from app.database import Base
