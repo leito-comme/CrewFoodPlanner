@@ -38,3 +38,9 @@ class ProductAllergens(str, Enum):
     SESAME = "sesame"
     WHEAT = "wheat"
     NONE = "none"
+
+
+class MealTypes(str, Enum):
+    BREAKFAST = "breakfast"
+    LUNCH = "lunch"
+    DINNER = "dinner"
