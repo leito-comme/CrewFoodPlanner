@@ -7,6 +7,12 @@ class ProductCreate(BaseModel):
     category: str
     calories_per_100g: float
     allergen: Optional[str] = None
+    price_per_kilo: float
+
+
+class ProductPriceUpdate(BaseModel):
+    id: int
+    price_per_kilo: float
 
 
 class RecipeIngredientCreate(BaseModel):
@@ -18,6 +24,7 @@ class RecipeCreate(BaseModel):
     name: str
     description: Optional[str] = None
     portions: int
+    meal_type: str
 
     calories_per_portion: Optional[float] = None
     protein_per_portion: Optional[float] = None
