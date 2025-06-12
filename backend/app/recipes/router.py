@@ -5,9 +5,17 @@ from typing import List, Union
 
 from app.database import get_async_session
 from app.recipes.models import Product, Recipe, RecipeIngredient
-from app.recipes.schemas import ProductCreate, RecipeCreate
+from app.recipes.schemas import ProductCreate, RecipeCreate, ProductPriceUpdate
 
 router = APIRouter(tags=["recipes"])
+
+
+@router.get("/products")
+async def read_products(
+    session: AsyncSession = Depends(get_async_session),
+) -> List[ProductCreate]:
+    result = await session.execute(select(Product))
+    return result.scalars().all()
 
 
 @router.post("/products")
@@ -32,6 +40,7 @@ async def add_products(
             category=product.category,
             calories_per_100g=product.calories_per_100g,
             allergen=product.allergen or "none",
+            price_per_kilo=product.price_per_kilo,
         )
         session.add(new_product)
         await session.flush()
@@ -39,6 +48,36 @@ async def add_products(
 
     await session.commit()
     return {"status": "products added", "product_ids": added_ids}
+
+
+@router.post("/products/prices")
+async def update_product_prices(
+    updates: List[ProductPriceUpdate],
+    session: AsyncSession = Depends(get_async_session),
+):
+    updated_ids = []
+
+    for item in updates:
+        result = await session.execute(select(Product).where(Product.id == item.id))
+        product = result.scalar_one_or_none()
+
+        if not product:
+            continue  # Пропустить несуществующий продукт
+
+        product.price_per_kilo = item.price_per_kilo
+        session.add(product)
+        updated_ids.append(product.id)
+
+    await session.commit()
+    return {"status": "prices updated", "updated_product_ids": updated_ids}
+
+
+@router.get("/recipes")
+async def get_recipes(
+    session: AsyncSession = Depends(get_async_session),
+) -> List[RecipeCreate]:
+    result = await session.execute(select(Recipe))
+    return result.scalars().all()
 
 
 @router.post("/recipes")
@@ -55,6 +94,7 @@ async def add_recipes(
         new_recipe = Recipe(
             name=recipe_data.name,
             description=recipe_data.description,
+            meal_type=recipe_data.meal_type,
             portions=recipe_data.portions,
             calories_per_portion=recipe_data.calories_per_portion,
             protein_per_portion=recipe_data.protein_per_portion,
