@@ -4,6 +4,8 @@ import Home from "@/pages/Home";
 import Crew from "@/pages/Crew";
 import Shipping from "@/pages/Shipping";
 import Login from "@/pages/Login";
+import Menu from "./pages/Menu";
+import { Bid } from "./pages/Bid";
 
 function AppRoutes() {
   const { isAuthenticated, loading } = useAuth();
@@ -37,17 +39,15 @@ function AppRoutes() {
       />
       <Route
         path="/menu"
-        element={isAuthenticated ? <div>Menu</div> : <Navigate to="/login" />}
+        element={isAuthenticated ? <Menu /> : <Navigate to="/login" />}
       />
       <Route
         path="/flow"
         element={isAuthenticated ? <div>Flow</div> : <Navigate to="/login" />}
       />
       <Route
-        path="/analytics"
-        element={
-          isAuthenticated ? <div>Analytics</div> : <Navigate to="/login" />
-        }
+        path="/bid"
+        element={isAuthenticated ? <Bid /> : <Navigate to="/login" />}
       />
     </Routes>
   );
