@@ -37,9 +37,15 @@ const Crew = () => {
   ) : error ? (
     <div className="error">{error}</div>
   ) : (
-    <div className="p-4 m-2 flex flex-col gap-4 outline-1 outline-border rounded-xl bg-background h-full">
-      <UploadCrew onUploadSuccess={handleUploadSuccess} />
-      <DataTable columns={columns} data={crewData} />
+    <div className="flex flex-col gap-4 overflow-scroll">
+      <div className="p-3 m-2 rounded-lg flex gap-6 bg-background shadow-md outline-1 outline-border">
+        <UploadCrew onUploadSuccess={handleUploadSuccess} />
+      </div>
+      <div className="p-4 m-2 flex flex-row gap-4 outline-1 outline-border rounded-xl bg-background h-full overflow-y-scroll">
+        <div className="w-full">
+          <DataTable columns={columns} data={crewData} />
+        </div>
+      </div>
     </div>
   );
 };

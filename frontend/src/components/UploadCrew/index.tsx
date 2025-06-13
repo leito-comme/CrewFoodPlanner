@@ -1,9 +1,9 @@
-import axios, { AxiosResponse } from 'axios';
-import { useState } from 'react';
-import { Button } from '../ui/button';
-import { CrewMemberData } from '@/types';
-import { FileText, Upload } from 'lucide-react';
-import { cn } from '@/lib/utils'
+import axios, { AxiosResponse } from "axios";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { CrewMemberData } from "@/types";
+import { FileText, Upload } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface UploadCrewProps {
   onUploadSuccess: (newData: CrewMemberData[]) => void;
@@ -16,7 +16,7 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
 
   const handleUpload = async () => {
     if (!file) {
-      setUploadError('Choose file for uploading!');
+      setUploadError("Choose file for uploading!");
       return;
     }
 
@@ -25,14 +25,14 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
       setUploadError(null);
 
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append("file", file);
 
       const response: AxiosResponse = await axios.post(
-        'http://127.0.0.1:8000/crew/upload',
+        "http://127.0.0.1:8000/crew/upload",
         formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -40,11 +40,11 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
       if (Array.isArray(response.data)) {
         onUploadSuccess(response.data);
       } else {
-        throw new Error('Server response error!');
+        throw new Error("Server response error!");
       }
     } catch (error: any) {
       const message =
-        error.response?.data?.detail || error.message || 'Unknown error';
+        error.response?.data?.detail || error.message || "Unknown error";
       setUploadError(message);
     } finally {
       setIsUploading(false);
@@ -53,7 +53,7 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
   };
 
   return (
-    <div className="p-3 rounded-lg flex gap-6 bg-card shadow-md outline-1 outline-border">
+    <div className="p-3 rounded-md flex gap-6 bg-card shadow-md outline-1 outline-border w-full">
       <input
         type="file"
         onChange={(e) => setFile(e.target.files?.[0] || null)}
@@ -67,16 +67,17 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
         </label>
       </Button>
       <div className="inline-flex items-center font-medium text-sm text-muted-foreground">
-        {file ? file.name : 'No file chosen'}
+        {file ? file.name : "No file chosen"}
       </div>
       <Button
         className={cn(
-          isUploading || !file ? 'bg-muted' : 'bg-primary hover:bg-primary/90',
-          'gap-2' // если хочешь расстояние между текстом и иконкой
+          isUploading || !file ? "bg-muted" : "bg-primary hover:bg-primary/90",
+          "gap-2" // если хочешь расстояние между текстом и иконкой
         )}
         onClick={handleUpload}
-        disabled={isUploading || !file}>
-        {isUploading ? 'Uploading...' : 'Upload'}{' '}
+        disabled={isUploading || !file}
+      >
+        {isUploading ? "Uploading..." : "Upload"}{" "}
         <Upload className="ml-auto h-4 w-4 opacity-50" />
       </Button>
       {uploadError && (
