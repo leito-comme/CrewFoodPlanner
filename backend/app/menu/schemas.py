@@ -6,10 +6,6 @@ from typing import List
 from app.recipes.models import Recipe
 
 
-class MenuGenerationRequest(BaseModel):
-    days: int
-
-
 class RecipeIngredientResponse(BaseModel):
     product_id: int
     product_name: str
@@ -61,5 +57,29 @@ class MenuVariant(BaseModel):
 
 class DayMenu(BaseModel):
     name: str
-    date: str  # Формат YYYY-MM-DD
-    variants: List[MenuVariant]  # Три варианта меню
+    date: str
+    variants: List[MenuVariant]
+
+
+class ProductOutput(BaseModel):
+    product_id: int
+    product_name: str
+    total_quantity_grams: float
+    price_per_kilo: float
+
+
+class ProductPriceUpdate(BaseModel):
+    product_id: int
+    price_per_kilo: float
+
+
+class VariantSelect(BaseModel):
+    variant_index: int
+
+
+class CurrentMenuProductRead(BaseModel):
+    id: int
+    product_id: int
+    product_name: str
+    total_quantity_grams: float
+    price_per_kilo: float
