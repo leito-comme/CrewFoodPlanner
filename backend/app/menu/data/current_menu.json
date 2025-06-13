@@ -1,0 +1,2559 @@
+[
+  {
+    "name": "Day 1",
+    "date": "2025-06-17",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 46,
+            "name": "Tuna Salad",
+            "description": "Fresh tuna salad with vegetables",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 30.0,
+            "fat_per_portion": 22.0,
+            "carbs_per_portion": 20.0,
+            "ingredients": [
+              {
+                "product_id": 88,
+                "product_name": "Vanilla extract",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 34,
+                "product_name": "Lettuce",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 24,
+                "product_name": "Cucumbers",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 38,
+            "name": "Baked Tofu with Broccoli",
+            "description": "Oven-baked tofu with steamed broccoli",
+            "portions": 2,
+            "calories_per_portion": 340.0,
+            "protein_per_portion": 25.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 25.0,
+            "ingredients": [
+              {
+                "product_id": 82,
+                "product_name": "Lentils",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 1440.0,
+        "total_protein": 110.0,
+        "total_fat": 80.0,
+        "total_carbs": 90.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 69,
+            "name": "Chicken and Vegetable Soup",
+            "description": "Hearty chicken and vegetable soup",
+            "portions": 2,
+            "calories_per_portion": 320.0,
+            "protein_per_portion": 25.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 18,
+                "product_name": "Potatoes",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 22,
+                "product_name": "Spinach",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 95,
+                "product_name": "Rosemary",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 41,
+            "name": "Salmon and Asparagus",
+            "description": "Pan-seared salmon with roasted asparagus",
+            "portions": 2,
+            "calories_per_portion": 360.0,
+            "protein_per_portion": 30.0,
+            "fat_per_portion": 22.0,
+            "carbs_per_portion": 12.0,
+            "ingredients": [
+              {
+                "product_id": 4,
+                "product_name": "Salmon fillet",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 31,
+                "product_name": "Green beans",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 1360.0,
+        "total_protein": 110.0,
+        "total_fat": 68.0,
+        "total_carbs": 84.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 7,
+            "name": "Beef Stir-fry with Rice",
+            "description": "Beef and vegetable stir-fry with rice",
+            "portions": 2,
+            "calories_per_portion": 550.0,
+            "protein_per_portion": 35.0,
+            "fat_per_portion": 20.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 2,
+                "product_name": "Beef sirloin",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 29,
+            "name": "Shrimp Stir-fry",
+            "description": "Shrimp and vegetable stir-fry",
+            "portions": 2,
+            "calories_per_portion": 320.0,
+            "protein_per_portion": 28.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 6,
+                "product_name": "Shrimp",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 138.0,
+        "total_fat": 88.0,
+        "total_carbs": 260.0
+      }
+    ]
+  },
+  {
+    "name": "Day 2",
+    "date": "2025-06-18",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 26,
+            "name": "Grilled Chicken with Vegetables",
+            "description": "Grilled chicken breast with seasonal vegetables",
+            "portions": 2,
+            "calories_per_portion": 400.0,
+            "protein_per_portion": 42.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2200.0,
+        "total_protein": 132.0,
+        "total_fat": 84.0,
+        "total_carbs": 260.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 7,
+            "name": "Beef Stir-fry with Rice",
+            "description": "Beef and vegetable stir-fry with rice",
+            "portions": 2,
+            "calories_per_portion": 550.0,
+            "protein_per_portion": 35.0,
+            "fat_per_portion": 20.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 2,
+                "product_name": "Beef sirloin",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 29,
+            "name": "Shrimp Stir-fry",
+            "description": "Shrimp and vegetable stir-fry",
+            "portions": 2,
+            "calories_per_portion": 320.0,
+            "protein_per_portion": 28.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 6,
+                "product_name": "Shrimp",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 138.0,
+        "total_fat": 88.0,
+        "total_carbs": 260.0
+      }
+    ]
+  },
+  {
+    "name": "Day 3",
+    "date": "2025-06-19",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 2,
+            "name": "Chicken Breast with Quinoa",
+            "description": "Baked chicken breast with quinoa side",
+            "portions": 2,
+            "calories_per_portion": 480.0,
+            "protein_per_portion": 45.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 42.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 20.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 32,
+            "name": "Vegetable Curry",
+            "description": "Spicy vegetable curry with rice",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 10.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 55.0,
+            "ingredients": [
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2280.0,
+        "total_protein": 122.0,
+        "total_fat": 84.0,
+        "total_carbs": 274.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      }
+    ]
+  },
+  {
+    "name": "Day 4",
+    "date": "2025-06-20",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 46,
+            "name": "Tuna Salad",
+            "description": "Fresh tuna salad with vegetables",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 30.0,
+            "fat_per_portion": 22.0,
+            "carbs_per_portion": 20.0,
+            "ingredients": [
+              {
+                "product_id": 88,
+                "product_name": "Vanilla extract",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 34,
+                "product_name": "Lettuce",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 24,
+                "product_name": "Cucumbers",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 38,
+            "name": "Baked Tofu with Broccoli",
+            "description": "Oven-baked tofu with steamed broccoli",
+            "portions": 2,
+            "calories_per_portion": 340.0,
+            "protein_per_portion": 25.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 25.0,
+            "ingredients": [
+              {
+                "product_id": 82,
+                "product_name": "Lentils",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 1440.0,
+        "total_protein": 110.0,
+        "total_fat": 80.0,
+        "total_carbs": 90.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 69,
+            "name": "Chicken and Vegetable Soup",
+            "description": "Hearty chicken and vegetable soup",
+            "portions": 2,
+            "calories_per_portion": 320.0,
+            "protein_per_portion": 25.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 18,
+                "product_name": "Potatoes",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 22,
+                "product_name": "Spinach",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 95,
+                "product_name": "Rosemary",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 41,
+            "name": "Salmon and Asparagus",
+            "description": "Pan-seared salmon with roasted asparagus",
+            "portions": 2,
+            "calories_per_portion": 360.0,
+            "protein_per_portion": 30.0,
+            "fat_per_portion": 22.0,
+            "carbs_per_portion": 12.0,
+            "ingredients": [
+              {
+                "product_id": 4,
+                "product_name": "Salmon fillet",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 31,
+                "product_name": "Green beans",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 1360.0,
+        "total_protein": 110.0,
+        "total_fat": 68.0,
+        "total_carbs": 84.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 2,
+            "name": "Chicken Breast with Quinoa",
+            "description": "Baked chicken breast with quinoa side",
+            "portions": 2,
+            "calories_per_portion": 480.0,
+            "protein_per_portion": 45.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 42.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 20.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 32,
+            "name": "Vegetable Curry",
+            "description": "Spicy vegetable curry with rice",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 10.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 55.0,
+            "ingredients": [
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2280.0,
+        "total_protein": 122.0,
+        "total_fat": 84.0,
+        "total_carbs": 274.0
+      }
+    ]
+  },
+  {
+    "name": "Day 5",
+    "date": "2025-06-21",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 7,
+            "name": "Beef Stir-fry with Rice",
+            "description": "Beef and vegetable stir-fry with rice",
+            "portions": 2,
+            "calories_per_portion": 550.0,
+            "protein_per_portion": 35.0,
+            "fat_per_portion": 20.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 2,
+                "product_name": "Beef sirloin",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 29,
+            "name": "Shrimp Stir-fry",
+            "description": "Shrimp and vegetable stir-fry",
+            "portions": 2,
+            "calories_per_portion": 320.0,
+            "protein_per_portion": 28.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 6,
+                "product_name": "Shrimp",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 138.0,
+        "total_fat": 88.0,
+        "total_carbs": 260.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 2,
+            "name": "Chicken Breast with Quinoa",
+            "description": "Baked chicken breast with quinoa side",
+            "portions": 2,
+            "calories_per_portion": 480.0,
+            "protein_per_portion": 45.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 42.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 20.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 32,
+            "name": "Vegetable Curry",
+            "description": "Spicy vegetable curry with rice",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 10.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 55.0,
+            "ingredients": [
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2280.0,
+        "total_protein": 122.0,
+        "total_fat": 84.0,
+        "total_carbs": 274.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      }
+    ]
+  },
+  {
+    "name": "Day 6",
+    "date": "2025-06-22",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 26,
+            "name": "Grilled Chicken with Vegetables",
+            "description": "Grilled chicken breast with seasonal vegetables",
+            "portions": 2,
+            "calories_per_portion": 400.0,
+            "protein_per_portion": 42.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2200.0,
+        "total_protein": 132.0,
+        "total_fat": 84.0,
+        "total_carbs": 260.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 26,
+            "name": "Grilled Chicken with Vegetables",
+            "description": "Grilled chicken breast with seasonal vegetables",
+            "portions": 2,
+            "calories_per_portion": 400.0,
+            "protein_per_portion": 42.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2200.0,
+        "total_protein": 132.0,
+        "total_fat": 84.0,
+        "total_carbs": 260.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      }
+    ]
+  },
+  {
+    "name": "Day 7",
+    "date": "2025-06-23",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 46,
+            "name": "Tuna Salad",
+            "description": "Fresh tuna salad with vegetables",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 30.0,
+            "fat_per_portion": 22.0,
+            "carbs_per_portion": 20.0,
+            "ingredients": [
+              {
+                "product_id": 88,
+                "product_name": "Vanilla extract",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 34,
+                "product_name": "Lettuce",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 24,
+                "product_name": "Cucumbers",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 38,
+            "name": "Baked Tofu with Broccoli",
+            "description": "Oven-baked tofu with steamed broccoli",
+            "portions": 2,
+            "calories_per_portion": 340.0,
+            "protein_per_portion": 25.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 25.0,
+            "ingredients": [
+              {
+                "product_id": 82,
+                "product_name": "Lentils",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 1440.0,
+        "total_protein": 110.0,
+        "total_fat": 80.0,
+        "total_carbs": 90.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 69,
+            "name": "Chicken and Vegetable Soup",
+            "description": "Hearty chicken and vegetable soup",
+            "portions": 2,
+            "calories_per_portion": 320.0,
+            "protein_per_portion": 25.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 30.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 18,
+                "product_name": "Potatoes",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 22,
+                "product_name": "Spinach",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 95,
+                "product_name": "Rosemary",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 41,
+            "name": "Salmon and Asparagus",
+            "description": "Pan-seared salmon with roasted asparagus",
+            "portions": 2,
+            "calories_per_portion": 360.0,
+            "protein_per_portion": 30.0,
+            "fat_per_portion": 22.0,
+            "carbs_per_portion": 12.0,
+            "ingredients": [
+              {
+                "product_id": 4,
+                "product_name": "Salmon fillet",
+                "quantity_in_grams": 240.0
+              },
+              {
+                "product_id": 31,
+                "product_name": "Green beans",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 1360.0,
+        "total_protein": 110.0,
+        "total_fat": 68.0,
+        "total_carbs": 84.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      }
+    ]
+  },
+  {
+    "name": "Day 8",
+    "date": "2025-06-24",
+    "variants": [
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 61,
+            "name": "Quinoa and Black Bean Bowl",
+            "description": "Quinoa and black bean power bowl",
+            "portions": 2,
+            "calories_per_portion": 420.0,
+            "protein_per_portion": 18.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 60.0,
+            "ingredients": [
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 87,
+                "product_name": "Baking soda",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 43,
+                "product_name": "Lemons",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 23,
+                "product_name": "Tomatoes",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 59,
+            "name": "Baked Chicken with Sweet Potato",
+            "description": "Baked chicken with mashed sweet potato",
+            "portions": 2,
+            "calories_per_portion": 450.0,
+            "protein_per_portion": 40.0,
+            "fat_per_portion": 18.0,
+            "carbs_per_portion": 35.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 19,
+                "product_name": "Sweet potatoes",
+                "quantity_in_grams": 400.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 96,
+                "product_name": "Paprika",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2300.0,
+        "total_protein": 128.0,
+        "total_fat": 90.0,
+        "total_carbs": 270.0
+      },
+      {
+        "recipes": [
+          {
+            "recipe_id": 48,
+            "name": "Pineapple Coconut Smoothie",
+            "description": "Tropical pineapple and coconut smoothie",
+            "portions": 2,
+            "calories_per_portion": 280.0,
+            "protein_per_portion": 6.0,
+            "fat_per_portion": 12.0,
+            "carbs_per_portion": 40.0,
+            "ingredients": [
+              {
+                "product_id": 44,
+                "product_name": "Avocado",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 81,
+                "product_name": "Chickpeas",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 60,
+                "product_name": "Chia seeds",
+                "quantity_in_grams": 20.0
+              },
+              {
+                "product_id": 62,
+                "product_name": "Maple syrup",
+                "quantity_in_grams": 30.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 2,
+            "name": "Chicken Breast with Quinoa",
+            "description": "Baked chicken breast with quinoa side",
+            "portions": 2,
+            "calories_per_portion": 480.0,
+            "protein_per_portion": 45.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 42.0,
+            "ingredients": [
+              {
+                "product_id": 1,
+                "product_name": "Chicken breast",
+                "quantity_in_grams": 300.0
+              },
+              {
+                "product_id": 9,
+                "product_name": "Quinoa",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 21,
+                "product_name": "Broccoli",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 26,
+                "product_name": "Onions",
+                "quantity_in_grams": 100.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 20.0
+              }
+            ]
+          },
+          {
+            "recipe_id": 32,
+            "name": "Vegetable Curry",
+            "description": "Spicy vegetable curry with rice",
+            "portions": 2,
+            "calories_per_portion": 380.0,
+            "protein_per_portion": 10.0,
+            "fat_per_portion": 15.0,
+            "carbs_per_portion": 55.0,
+            "ingredients": [
+              {
+                "product_id": 8,
+                "product_name": "White rice",
+                "quantity_in_grams": 200.0
+              },
+              {
+                "product_id": 20,
+                "product_name": "Carrots",
+                "quantity_in_grams": 160.0
+              },
+              {
+                "product_id": 25,
+                "product_name": "Bell peppers",
+                "quantity_in_grams": 140.0
+              },
+              {
+                "product_id": 28,
+                "product_name": "Zucchini",
+                "quantity_in_grams": 120.0
+              },
+              {
+                "product_id": 51,
+                "product_name": "Olive oil",
+                "quantity_in_grams": 30.0
+              },
+              {
+                "product_id": 99,
+                "product_name": "Coriander",
+                "quantity_in_grams": 10.0
+              }
+            ]
+          }
+        ],
+        "total_calories": 2280.0,
+        "total_protein": 122.0,
+        "total_fat": 84.0,
+        "total_carbs": 274.0
+      }
+    ]
+  }
+]
