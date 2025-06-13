@@ -11,6 +11,7 @@ import app.crew.models
 import app.users.models
 import app.crew.models
 import app.recipes.models
+import app.menu.models
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

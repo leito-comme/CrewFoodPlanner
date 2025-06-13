@@ -59,7 +59,9 @@ async def upload_file(
                 name=row["name"],
                 height="{:.1f}".format(row["height"]),
                 weight="{:.1f}".format(row["weight"]),
-                allergies=row["allergies"],
+                allergies=(
+                    row["allergies"].lower() if pd.notna(row["allergies"]) else None
+                ),
             )
             for _, row in df.iterrows()
         ]

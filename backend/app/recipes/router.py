@@ -62,7 +62,7 @@ async def update_product_prices(
         product = result.scalar_one_or_none()
 
         if not product:
-            continue  # Пропустить несуществующий продукт
+            continue
 
         product.price_per_kilo = item.price_per_kilo
         session.add(product)

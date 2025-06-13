@@ -1,35 +1,122 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
-from sqlalchemy import select
+from sqlalchemy import select, func, delete, update
 from typing import List, Dict, Tuple, Optional
 import random
 import math
 from datetime import datetime, timedelta
 from collections import defaultdict
+from app.menu.storage import save_menu, load_menu
 
 from app.database import get_async_session
 from app.menu.schemas import (
-    MenuGenerationRequest,
     DayMenu,
     RecipeInfo,
     RecipeIngredientResponse,
     ScaledRecipe,
+    ProductOutput,
+    ProductPriceUpdate,
+    VariantSelect,
+    CurrentMenuProductRead,
 )
 from app.crew.models import CrewMember
 from app.shipping.models import ShippingData
 from app.recipes.models import Recipe, RecipeIngredient, Product
+from app.menu.models import CurrentMenuProduct
 from app.constants.enum import MealTypes
 
 
 router = APIRouter(tags=["menu"])
 
-# Глобальный кэш истории использования рецептов
 recipe_history = defaultdict(list)
 
 
+@router.post("/menu/select")
+async def select_menu_variant(
+    data: VariantSelect,
+    db: AsyncSession = Depends(get_async_session),
+):
+    variant_index = data.variant_index
+    menu = load_menu()
+
+    crew_size = await db.scalar(select(func.count()).select_from(CrewMember))
+
+    if not menu:
+        raise HTTPException(status_code=404, detail="No menu available")
+
+    product_map = defaultdict(
+        lambda: {"product_name": "", "quantity": 0.0, "price_per_kilo": 0.0}
+    )
+
+    for day in menu:
+        try:
+            variant = day["variants"][variant_index]
+        except IndexError:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid variant index {variant_index} for day {day['date']}",
+            )
+
+        for recipe in variant["recipes"]:
+            for ingredient in recipe["ingredients"]:
+                pid = ingredient["product_id"]
+                pname = ingredient["product_name"]
+                qty = ingredient["quantity_in_grams"] * crew_size
+                product_map[pid]["product_name"] = pname
+                product_map[pid]["quantity"] += qty
+
+    product_ids = list(product_map.keys())
+
+    result = await db.execute(
+        select(Product.id, Product.price_per_kilo).where(Product.id.in_(product_ids))
+    )
+    prices = {row.id: row.price_per_kilo for row in result.fetchall()}
+
+    await db.execute(delete(CurrentMenuProduct))
+
+    for pid, data in product_map.items():
+        price = prices.get(pid, 0.0)
+
+        db.add(
+            CurrentMenuProduct(
+                product_id=pid,
+                product_name=data["product_name"],
+                total_quantity_grams=data["quantity"],
+                price_per_kilo=price,
+            )
+        )
+
+    await db.commit()
+    return
+
+
+@router.get("/current-menu-products", response_model=List[CurrentMenuProductRead])
+async def get_all_current_menu_products(
+    db: AsyncSession = Depends(get_async_session),
+):
+    result = await db.execute(select(CurrentMenuProduct))
+    products = result.scalars().all()
+    return products
+
+
+@router.patch("/current-menu-products")
+async def bulk_update_prices(
+    updates: List[ProductPriceUpdate],
+    db: AsyncSession = Depends(get_async_session),
+):
+    for item in updates:
+        await db.execute(
+            update(CurrentMenuProduct)
+            .where(CurrentMenuProduct.product_id == item.product_id)
+            .values(price_per_kilo=item.price_per_kilo)
+        )
+    await db.commit()
+    return {"status": "prices updated"}
+
+
 def calculate_daily_kbzu_for_crew(crew_members: List[CrewMember]) -> Dict[str, float]:
-    """Расчет дневной нормы КБЖУ для экипажа"""
+
     total_calories = 0.0
     total_protein = 0.0
     total_fat = 0.0
@@ -43,9 +130,8 @@ def calculate_daily_kbzu_for_crew(crew_members: List[CrewMember]) -> Dict[str, f
         # Коэффициент активности для моряков (умеренная активность)
         calories = bmr * 1.5
 
-        # Рекомендуемые пропорции макронутриентов
-        protein = weight * 1.6  # г/кг для активных людей
-        fat = calories * 0.25 / 9  # 25% от калорий
+        protein = weight * 1.6
+        fat = calories * 0.25 / 9
         carbs = (calories - (protein * 4 + fat * 9)) / 4
 
         total_calories += calories
@@ -62,15 +148,14 @@ def calculate_daily_kbzu_for_crew(crew_members: List[CrewMember]) -> Dict[str, f
 
 
 def get_recipe_info(recipe: Recipe, scale: float = 1.0) -> RecipeInfo:
-    """Создание информации о рецепте с масштабированием"""
+
     ingredients = []
 
-    # Добавляем отладочную информацию
-    print(f"Processing recipe: {recipe.name}")
-    print(f"Recipe has {len(recipe.ingredients)} ingredients")
+    # print(f"Processing recipe: {recipe.name}")
+    # print(f"Recipe has {len(recipe.ingredients)} ingredients")
 
     for ri in recipe.ingredients:
-        print(f"Ingredient: {ri.product.name}, quantity: {ri.quantity_in_grams}")
+        # print(f"Ingredient: {ri.product.name}, quantity: {ri.quantity_in_grams}")
         ingredients.append(
             RecipeIngredientResponse(
                 product_id=ri.product_id,
@@ -102,7 +187,6 @@ def calculate_recipe_totals(recipes: List[Recipe], crew_size: int) -> Dict[str, 
         totals["fat"] += recipe.fat_per_portion * recipe.portions
         totals["carbs"] += recipe.carbs_per_portion * recipe.portions
 
-    # Умножаем на размер экипажа
     for key in totals:
         totals[key] *= crew_size
 
@@ -112,14 +196,14 @@ def calculate_recipe_totals(recipes: List[Recipe], crew_size: int) -> Dict[str, 
 def calculate_nutrition_score(
     actual: Dict[str, float], target: Dict[str, float]
 ) -> float:
-    """Расчет оценки соответствия питательной ценности целевым значениям"""
+
     score = 0.0
     weights = {"calories": 0.4, "protein": 0.3, "fat": 0.15, "carbs": 0.15}
 
     for nutrient in target:
         if target[nutrient] > 0:
             ratio = actual[nutrient] / target[nutrient]
-            # Штрафуем за сильные отклонения
+
             if ratio < 0.8 or ratio > 1.2:
                 penalty = abs(1 - ratio) * 2
             else:
@@ -127,9 +211,6 @@ def calculate_nutrition_score(
             score += penalty * weights[nutrient]
 
     return score
-
-
-# ScaledRecipe теперь импортируется из schemas
 
 
 async def find_best_menu_combination(
@@ -143,7 +224,6 @@ async def find_best_menu_combination(
     best_score = float("inf")
     best_actual_kbzu = None
 
-    # Группируем рецепты по типам приема пищи
     recipes_by_type = defaultdict(list)
     for recipe in recipes:
         recipes_by_type[recipe.meal_type].append(recipe)
@@ -151,38 +231,31 @@ async def find_best_menu_combination(
     for attempt in range(max_attempts):
         selected = []
 
-        # Выбираем рецепты для каждого типа приема пищи
         for meal_type in MealTypes:
             if meal_type in recipes_by_type and recipes_by_type[meal_type]:
                 recipe = random.choice(recipes_by_type[meal_type])
                 selected.append(recipe)
 
-        if len(selected) < 2:  # Минимум 2 приема пищи
+        if len(selected) < 2:
             continue
 
-        # Рассчитываем текущие значения КБЖУ
         actual_kbzu = calculate_recipe_totals(selected, crew_size)
 
-        # Пытаемся скорректировать порции для лучшего соответствия
         scale_factor = (
             target_kbzu["calories"] / actual_kbzu["calories"]
             if actual_kbzu["calories"] > 0
             else 1.0
         )
 
-        # Применяем масштабирование в разумных пределах (0.5-2.0)
         scale_factor = max(0.5, min(2.0, scale_factor))
 
-        # Создаем скорректированные рецепты с сохранением ингредиентов
         adjusted_recipes = []
         for recipe in selected:
             scaled_recipe = ScaledRecipe(recipe, scale_factor)
             adjusted_recipes.append(scaled_recipe)
 
-        # Пересчитываем с новыми порциями
         adjusted_kbzu = calculate_recipe_totals(adjusted_recipes, crew_size)
 
-        # Рассчитываем оценку
         score = calculate_nutrition_score(adjusted_kbzu, target_kbzu)
 
         if score < best_score:
@@ -190,8 +263,7 @@ async def find_best_menu_combination(
             best_combination = adjusted_recipes
             best_actual_kbzu = adjusted_kbzu
 
-            # Ранний выход при хорошем результате
-            if score < 0.15:  # 15% суммарного отклонения
+            if score < 0.15:
                 break
 
     return best_combination, best_score, best_actual_kbzu
@@ -204,14 +276,14 @@ def get_available_recipes(
     meal_type: Optional[str] = None,
     min_gap_days: int = 3,
 ) -> List[Recipe]:
-    """Получение доступных рецептов с учетом истории использования"""
+
     available = []
     for recipe in all_recipes:
         if meal_type and recipe.meal_type != meal_type:
             continue
 
         last_used = history.get(recipe.id, [])
-        # Проверяем, что рецепт не использовался в последние min_gap_days дней
+
         can_use = all(
             current_date - date >= timedelta(days=min_gap_days) for date in last_used
         )
@@ -228,8 +300,7 @@ async def generate_menus_for_days(
     history: Dict[int, List[datetime]],
     start_date: datetime,
 ) -> List[DayMenu]:
-    """Генерация меню на несколько дней"""
-    # Загружаем данные экипажа
+
     crew_result = await db.execute(select(CrewMember))
     crew = crew_result.scalars().all()
     crew_size = len(crew)
@@ -237,13 +308,11 @@ async def generate_menus_for_days(
     if crew_size == 0:
         raise HTTPException(status_code=400, detail="No crew members found")
 
-    # Получаем список аллергенов экипажа
     allergies = set()
     for member in crew:
         if member.allergies:
             allergies.add(member.allergies)
 
-    # Загружаем все рецепты с ингредиентами
     recipe_result = await db.execute(
         select(Recipe)
         .options(selectinload(Recipe.ingredients).joinedload(RecipeIngredient.product))
@@ -252,17 +321,16 @@ async def generate_menus_for_days(
 
     all_recipes = recipe_result.scalars().unique().all()
 
-    # Добавляем отладочную информацию
-    print(f"Loaded {len(all_recipes)} recipes")
-    if all_recipes:
-        print(f"First recipe has {len(all_recipes[0].ingredients)} ingredients")
+    # print(f"Loaded {len(all_recipes)} recipes")
+    # if all_recipes:
+    #     print(f"First recipe has {len(all_recipes[0].ingredients)} ingredients")
 
-    # Фильтруем рецепты по аллергенам
     safe_recipes = []
     for recipe in all_recipes:
         is_safe = True
         for ingredient in recipe.ingredients:
             if ingredient.product.allergen and ingredient.product.allergen in allergies:
+                print(ingredient.product.allergen)
                 is_safe = False
                 break
         if is_safe:
@@ -273,7 +341,6 @@ async def generate_menus_for_days(
             status_code=400, detail="No safe recipes found for crew allergies"
         )
 
-    # Рассчитываем дневную норму КБЖУ
     daily_kbzu = calculate_daily_kbzu_for_crew(crew)
 
     menus = []
@@ -282,18 +349,15 @@ async def generate_menus_for_days(
     for day in range(days):
         variants = []
 
-        # Генерируем 3 варианта меню на день
         for variant_num in range(3):
-            # Получаем доступные рецепты (с учетом истории)
+
             available_recipes = get_available_recipes(
                 safe_recipes, history, current_date
             )
 
-            # Если доступных рецептов мало, используем все безопасные рецепты
             if len(available_recipes) < len(MealTypes) * 2:
                 available_recipes = safe_recipes.copy()
 
-            # Находим лучшую комбинацию рецептов
             selected_recipes, score, actual_kbzu = await find_best_menu_combination(
                 available_recipes, daily_kbzu, crew_size
             )
@@ -301,18 +365,16 @@ async def generate_menus_for_days(
             if not selected_recipes:
                 continue
 
-            # Создаем список RecipeInfo используя оригинальные рецепты с ингредиентами
             recipe_infos = []
             for scaled_recipe in selected_recipes:
-                # Используем оригинальный рецепт с ингредиентами, но с масштабированием
+
                 recipe_info = get_recipe_info(
                     scaled_recipe.original_recipe, scaled_recipe.scale_factor
                 )
-                # Обновляем количество порций
+
                 recipe_info.portions = scaled_recipe.portions
                 recipe_infos.append(recipe_info)
 
-            # Рассчитываем итоговые значения для варианта
             total_calories = sum(
                 r.calories_per_portion * r.portions for r in recipe_infos
             )
@@ -331,13 +393,11 @@ async def generate_menus_for_days(
             }
             variants.append(variant)
 
-            # Обновляем историю использования рецептов
             for scaled_recipe in selected_recipes:
                 history[scaled_recipe.id].append(current_date)
 
-        # Если не удалось сгенерировать варианты, создаем хотя бы один базовый
         if not variants:
-            # Простой вариант: берем по одному рецепту каждого типа
+
             basic_recipes = []
             for meal_type in MealTypes:
                 type_recipes = [r for r in safe_recipes if r.meal_type == meal_type]
@@ -363,40 +423,41 @@ async def generate_menus_for_days(
                 variant,
                 variant,
                 variant,
-            ]  # Дублируем для получения 3 вариантов
+            ]
 
-        # Создаем меню дня
         day_menu = DayMenu(
             name=f"Day {day + 1}",
             date=current_date.strftime("%Y-%m-%d"),
-            variants=variants[:3],  # Убеждаемся, что у нас ровно 3 варианта
+            variants=variants[:3],
         )
         menus.append(day_menu)
 
-        # Переходим к следующему дню
         current_date += timedelta(days=1)
 
     return menus
 
 
-@router.post("/generate", response_model=List[DayMenu])
-async def generate_menu(
-    request: MenuGenerationRequest, db: AsyncSession = Depends(get_async_session)
-):
-    """Endpoint для генерации меню"""
-    if request.days < 1:
-        raise HTTPException(status_code=400, detail="Number of days must be at least 1")
-
-    if request.days > 30:
-        raise HTTPException(status_code=400, detail="Maximum 30 days allowed")
-
-    # Используем текущую дату как точку отсчёта
-    start_date = datetime.now()
-
+@router.get("/generate", response_model=List[DayMenu])
+async def generate_menu(db: AsyncSession = Depends(get_async_session)):
     try:
-        menus = await generate_menus_for_days(
-            db, request.days, recipe_history, start_date
+        result = await db.execute(
+            select(ShippingData).where(ShippingData.is_current == True).limit(1)
         )
+        shipping_data = result.scalar_one_or_none()
+
+        if not shipping_data:
+            raise HTTPException(
+                status_code=404, detail="No current shipping data found"
+            )
+
+        start_date = datetime.combine(shipping_data.departure_date, datetime.min.time())
+        end_date = shipping_data.arrival_date
+        days = (end_date - shipping_data.departure_date).days + 1
+
+        menus = await generate_menus_for_days(db, days, recipe_history, start_date)
+
+        menu_dicts = [menu.model_dump() for menu in menus]
+        save_menu(menu_dicts)
         return menus
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating menu: {str(e)}")

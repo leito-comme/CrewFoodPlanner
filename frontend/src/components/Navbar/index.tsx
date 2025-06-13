@@ -33,18 +33,18 @@ const rawContent = [
     icon: <Hop className="ml-auto h-5 w-5" />,
     name: "Menu designer",
     link: "/menu",
-    roles: ["manager"],
-  },
-  {
-    icon: <Workflow className="ml-auto h-5 w-5" />,
-    name: "Flow controller",
-    link: "/flow",
     roles: ["manager", "admin"],
   },
+  // {
+  //   icon: <Workflow className="ml-auto h-5 w-5" />,
+  //   name: "Flow controller",
+  //   link: "/flow",
+  //   roles: ["manager", "admin"],
+  // },
   {
     icon: <ChartNoAxesCombined className="ml-auto h-5 w-5" />,
-    name: "Analytics",
-    link: "/analytics",
+    name: "Bid formation",
+    link: "/bid",
     roles: ["admin"],
   },
 ];

@@ -90,60 +90,63 @@ const Shipping = () => {
   }
 
   return (
-    <div className="p-4 m-2 flex flex-row gap-4 outline-1 outline-border rounded-xl bg-background h-full">
-      <div className="w-[360px] shrink-0 bg-card p-4 rounded-lg outline-1 outline-border relative">
-        {showCheckmark && (
-          <div className={`overlay ${showCheckmark ? "show" : ""}`}>
-            <div className="checkmark-wrapper">
-              <svg
-                viewBox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-                className={cn("checkmark", showCheckmark ? "animate" : "")}
-              >
-                <path
-                  d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z"
-                  stroke="#ddf2ff"
-                  fill="transparent"
-                />
-              </svg>
+    <div className="p-4 m-2 flex flex-row gap-4 overflow-scroll outline-1 outline-border rounded-xl bg-background">
+      <div className="flex flex-row gap-4 h-full">
+        <div className="w-[25vw] shrink-0 bg-card p-4 rounded-lg outline-1 outline-border relative">
+          {showCheckmark && (
+            <div className={`overlay ${showCheckmark ? "show" : ""}`}>
+              <div className="checkmark-wrapper">
+                <svg
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={cn("checkmark", showCheckmark ? "animate" : "")}
+                >
+                  <path
+                    d="M 18 32.34 l -8.34 -8.34 -2.83 2.83 11.17 11.17 24 -24 -2.83 -2.83 z"
+                    stroke="#ddf2ff"
+                    fill="transparent"
+                  />
+                </svg>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <FormProvider {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col gap-4"
-          >
-            <InputForm
-              name="number"
-              formName="Voyage number"
-              placeholder="Write your voyage number here"
-            />
-            <DatePicker
-              pickerName={"Voyage duration"}
-              pickerDescription={
-                "Voyage duration is used to perform calculations"
-              }
-            />
-            <SeasonPicker />
-            <InputForm
-              name="description"
-              formName="Description"
-              placeholder="Write short description here"
-            />
-            <Button
-              type="submit"
-              className="bg-primary text-white py-2 px-4  rounded"
+          <FormProvider {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-4"
             >
-              Submit
-            </Button>
-          </form>
-        </FormProvider>
+              <InputForm
+                name="number"
+                formName="Voyage number"
+                placeholder="Write your voyage number here"
+              />
+              <DatePicker
+                pickerName={"Voyage duration"}
+                pickerDescription={
+                  "Voyage duration is used to perform calculations"
+                }
+              />
+              <SeasonPicker />
+              <InputForm
+                name="description"
+                formName="Description"
+                placeholder="Write short description here"
+              />
+              <Button
+                type="submit"
+                className="bg-primary text-white py-2 px-4  rounded"
+              >
+                Submit
+              </Button>
+            </form>
+          </FormProvider>
+        </div>
       </div>
-
-      <div className="flex-1 overflow-x-scroll">
-        <DataTable columns={columns} data={shippingData} />
+      <div className="flex flex-row gap-4 rounded-xl bg-background h-full overflow-y-scroll w-full">
+        <div className="overflow-auto w-full h-full">
+          <DataTable columns={columns} data={shippingData} />
+        </div>
       </div>
     </div>
   );
