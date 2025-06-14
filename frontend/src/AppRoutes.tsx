@@ -6,6 +6,7 @@ import Shipping from "@/pages/Shipping";
 import Login from "@/pages/Login";
 import Menu from "./pages/Menu";
 import { Bid } from "./pages/Bid";
+import CurrentMenu from "./pages/CurrentMenu";
 
 function AppRoutes() {
   const { isAuthenticated, loading } = useAuth();
@@ -42,8 +43,8 @@ function AppRoutes() {
         element={isAuthenticated ? <Menu /> : <Navigate to="/login" />}
       />
       <Route
-        path="/flow"
-        element={isAuthenticated ? <div>Flow</div> : <Navigate to="/login" />}
+        path="/current"
+        element={isAuthenticated ? <CurrentMenu /> : <Navigate to="/login" />}
       />
       <Route
         path="/bid"

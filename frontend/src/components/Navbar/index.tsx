@@ -35,12 +35,12 @@ const rawContent = [
     link: "/menu",
     roles: ["manager", "admin"],
   },
-  // {
-  //   icon: <Workflow className="ml-auto h-5 w-5" />,
-  //   name: "Flow controller",
-  //   link: "/flow",
-  //   roles: ["manager", "admin"],
-  // },
+  {
+    icon: <Workflow className="ml-auto h-5 w-5" />,
+    name: "Current menu",
+    link: "/current",
+    roles: ["manager", "admin"],
+  },
   {
     icon: <ChartNoAxesCombined className="ml-auto h-5 w-5" />,
     name: "Bid formation",
