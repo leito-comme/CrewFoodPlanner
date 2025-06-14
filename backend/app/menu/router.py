@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 from sqlalchemy import select, func, delete, update
@@ -89,6 +89,46 @@ async def select_menu_variant(
 
     await db.commit()
     return
+
+
+@router.get("/menu")
+async def get_current_menu(
+    variant: Optional[int] = Query(None, ge=0),
+    db: AsyncSession = Depends(get_async_session),
+):
+    full_menu_data = load_menu()
+
+    if not full_menu_data:
+        raise HTTPException(status_code=404, detail="Menu not found")
+
+    result = []
+
+    for idx, day in enumerate(full_menu_data):
+        day_name = day.get("name", f"Day {idx+1}")
+        day_date = day.get("date")
+        day_variants = day.get("variants", [])
+
+        if variant is not None:
+            if variant < len(day_variants):
+                selected_variant = day_variants[variant]
+            else:
+                selected_variant = {}
+        else:
+            selected_variant = {}
+
+        result.append(
+            {
+                "name": day_name,
+                "date": day_date,
+                "recipes": selected_variant.get("recipes", []),
+                "total_calories": selected_variant.get("total_calories", 0),
+                "total_protein": selected_variant.get("total_protein", 0),
+                "total_fat": selected_variant.get("total_fat", 0),
+                "total_carbs": selected_variant.get("total_carbs", 0),
+            }
+        )
+
+    return result
 
 
 @router.get("/current-menu-products", response_model=List[CurrentMenuProductRead])
