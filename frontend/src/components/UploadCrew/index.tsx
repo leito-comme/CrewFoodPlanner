@@ -4,12 +4,14 @@ import { Button } from "../ui/button";
 import { CrewMemberData } from "@/types";
 import { FileText, Upload } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { generatePdfFromJsonWithSignature } from "@/utils/pdfReport";
 
 interface UploadCrewProps {
   onUploadSuccess: (newData: CrewMemberData[]) => void;
+  data: CrewMemberData[];
 }
 
-const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
+const UploadCrew = ({ onUploadSuccess, data }: UploadCrewProps) => {
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -52,6 +54,11 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
     }
   };
 
+  const handleReport = async () => {
+    const filteredData = data.map(({ id, ...rest }) => rest);
+    generatePdfFromJsonWithSignature(filteredData, "Crew List Signature Sheet");
+  };
+
   return (
     <div className="p-3 rounded-md flex gap-6 bg-card shadow-md outline-1 outline-border w-full">
       <input
@@ -72,13 +79,16 @@ const UploadCrew = ({ onUploadSuccess }: UploadCrewProps) => {
       <Button
         className={cn(
           isUploading || !file ? "bg-muted" : "bg-primary hover:bg-primary/90",
-          "gap-2" // если хочешь расстояние между текстом и иконкой
+          "gap-2"
         )}
         onClick={handleUpload}
         disabled={isUploading || !file}
       >
         {isUploading ? "Uploading..." : "Upload"}{" "}
         <Upload className="ml-auto h-4 w-4 opacity-50" />
+      </Button>
+      <Button className="cursor-pointer" onClick={handleReport}>
+        Generate a report
       </Button>
       {uploadError && (
         <div className="text-destructive mt-2 text-sm font-medium">

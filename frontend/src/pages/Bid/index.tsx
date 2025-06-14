@@ -5,6 +5,7 @@ import axios from "@/services/axiosInstance";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 import { Button } from "@/components/ui/button";
+import { generatePdfFromJsonWithSignature } from "@/utils/pdfReport";
 
 export function Bid() {
   const [data, setData] = useState<CurrentMenuProduct[]>([]);
@@ -50,6 +51,14 @@ export function Bid() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleReport = async () => {
+    const filteredData = data.map(({ id, ...rest }) => rest);
+    generatePdfFromJsonWithSignature(
+      filteredData,
+      "Application for ordering products"
+    );
   };
 
   const exportToExcel = async () => {
@@ -113,6 +122,13 @@ export function Bid() {
             className="btn btn-secondary"
           >
             Export
+          </Button>
+          <Button
+            onClick={handleReport}
+            disabled={loading}
+            className="btn btn-secondary"
+          >
+            Generate a report
           </Button>
           {error && <div className="text-red-500 mb-2">{error}</div>}
           {loading && <div>Loading...</div>}

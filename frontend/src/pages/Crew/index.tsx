@@ -12,10 +12,12 @@ const Crew = () => {
 
   useEffect(() => {
     const fetchInitialData = async () => {
+      setIsLoading(true);
       try {
         const res = await axios.get("http://127.0.0.1:8000/crew");
         if (Array.isArray(res.data)) {
           setCrewData(res.data);
+          localStorage.setItem("crewCount", res.data.length.toString());
         }
       } catch (err) {
         setError("Downloading failed!");
@@ -39,7 +41,7 @@ const Crew = () => {
   ) : (
     <div className="flex flex-col gap-4 overflow-scroll">
       <div className="p-3 m-2 rounded-lg flex gap-6 bg-background shadow-md outline-1 outline-border">
-        <UploadCrew onUploadSuccess={handleUploadSuccess} />
+        <UploadCrew onUploadSuccess={handleUploadSuccess} data={crewData} />
       </div>
       <div className="p-4 m-2 flex flex-row gap-4 outline-1 outline-border rounded-xl bg-background h-full overflow-y-scroll">
         <div className="w-full">
