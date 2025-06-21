@@ -34,19 +34,19 @@ const Home = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="bg-muted rounded-lg p-4 text-center">
-          <h2 className="text-xl font-semibold">📁 Menu</h2>
+          <h2 className="text-xl text-foreground font-semibold">📁 Menu</h2>
           <p className="text-sm text-muted-foreground">
             Manage food items and portions
           </p>
         </div>
         <div className="bg-muted rounded-lg p-4 text-center">
-          <h2 className="text-xl font-semibold">📥 Requests</h2>
+          <h2 className="text-xl text-foreground font-semibold">📥 Requests</h2>
           <p className="text-sm text-muted-foreground">
             Pricing, weights, and exports
           </p>
         </div>
         <div className="bg-muted rounded-lg p-4 text-center">
-          <h2 className="text-xl font-semibold">🧑‍🤝‍🧑 Crew</h2>
+          <h2 className="text-xl text-foreground font-semibold">🧑‍🤝‍🧑 Crew</h2>
           <p className="text-sm text-muted-foreground">
             Upload and manage members
           </p>

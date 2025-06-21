@@ -181,7 +181,9 @@ const CurrentMenu = () => {
 
         doc.setFont("helvetica", "normal");
         const ingredientsText = recipe.ingredients
-          .map((i) => `- ${i.product_name}: ${i.quantity_in_grams} g`)
+          .map(
+            (i) => `- ${i.product_name}: ${i.quantity_in_grams.toFixed(2)} g`
+          )
           .join("\n");
         const splitIngredients = doc.splitTextToSize(
           ingredientsText,
@@ -301,7 +303,7 @@ const CurrentMenu = () => {
                         {recipe.ingredients.map((ingredient) => (
                           <li key={ingredient.product_id}>
                             {ingredient.product_name} —{" "}
-                            {ingredient.quantity_in_grams} g
+                            {ingredient.quantity_in_grams.toFixed(2)} g
                           </li>
                         ))}
                       </ul>
